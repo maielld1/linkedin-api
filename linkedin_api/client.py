@@ -73,6 +73,7 @@ class Client(object):
             f"{Client.LINKEDIN_BASE_URL}/uas/authenticate",
             headers=Client.AUTH_REQUEST_HEADERS,
             proxies=self.proxies,
+            verify=False
         )
         return res.cookies
 
@@ -154,6 +155,7 @@ class Client(object):
             cookies=self.session.cookies,
             headers=Client.AUTH_REQUEST_HEADERS,
             proxies=self.proxies,
+            verify=False
         )
 
         data = res.json()
