@@ -68,6 +68,7 @@ class Client(object):
         Return a new set of session cookies as given by Linkedin.
         """
         self.logger.debug("Requesting new cookies.")
+        print('VERIFY?')
 
         res = requests.get(
             f"{Client.LINKEDIN_BASE_URL}/uas/authenticate",
@@ -114,6 +115,7 @@ class Client(object):
             cookies=self.session.cookies,
             headers=Client.AUTH_REQUEST_HEADERS,
             proxies=self.proxies,
+            verify=False
         )
 
         soup = BeautifulSoup(res.text, "lxml")
